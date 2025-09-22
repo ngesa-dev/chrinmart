@@ -1,14 +1,27 @@
-// src/pages/Home.jsx
-import SEO from "../components/SEO";
+import { Helmet } from "react-helmet-async";
+import Hero from "../components/Hero";
+import FeaturedProducts from "../components/FeaturedProducts";
+import WhyChooseUs from "../components/WhyChooseUs";
+import Testimonials from "../components/Testimonials";
 
-function Home() {
+const Home = () => {
   return (
-    <div className="p-4">
-      <SEO title="Home" description="Welcome to Chrinmart Electricals & Electronics Shop" />
-      <h1 className="text-3xl font-bold">Chrinmart Electricals</h1>
-      <p>Your trusted shop for electricals & electronics.</p>
+    <div>
+      {/* SEO */}
+      <Helmet>
+        <title>Chrinmart Electricals & Electronics</title>
+        <meta
+          name="description"
+          content="Shop electronics and electrical appliances at Chrinmart. Affordable prices, trusted quality, and fast delivery."
+        />
+      </Helmet>
+
+      <Hero />
+      <FeaturedProducts />
+      <WhyChooseUs />
+       <Testimonials />
     </div>
   );
-}
+};
 
 export default Home;

@@ -5,7 +5,7 @@ import { HiMenu, HiX } from "react-icons/hi";
 import { FaBolt } from "react-icons/fa";
 import { navLinks } from "../constants";
 
-function Navbar() {
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
   const location = useLocation();
@@ -27,11 +27,12 @@ function Navbar() {
   }, [location.pathname]);
 
   return (
-    <nav className="bg-brand-purple text-brand-white px-6 py-4 flex justify-between items-center relative shadow-md sticky top-0 z-50">
+    <nav className="bg-brand-yellow text-brand-black px-6 py-4 flex justify-between items-center sticky top-0 z-50 shadow-md">
+
       {/* Logo + Brand */}
       <div className="flex items-center space-x-2">
-        <FaBolt className="text-brand-yellow text-2xl" />
-        <h1 className="text-xl font-bold">Chrinmart</h1>
+        <FaBolt className="text-brand-purple text-2xl" />
+        <h1 className="text-xl font-bold text-brand-purple">Chrinmart</h1>
       </div>
 
       {/* Desktop Menu */}
@@ -40,7 +41,7 @@ function Navbar() {
           <Link
             key={link.name}
             to={link.path}
-            className="hover:text-brand-yellow transition-colors"
+            className="text-brand-black hover:text-brand-purple transition-colors font-medium"
           >
             {link.name}
           </Link>
@@ -48,7 +49,7 @@ function Navbar() {
         {/* CTA */}
         <Link
           to="/products"
-          className="bg-brand-yellow text-brand-black px-4 py-2 rounded-lg font-semibold hover:opacity-90 transition"
+          className="bg-brand-purple text-brand-white px-4 py-2 rounded-lg font-semibold hover:opacity-90 transition"
         >
           Shop Now
         </Link>
@@ -56,7 +57,7 @@ function Navbar() {
 
       {/* Mobile Menu Toggle */}
       <button
-        className="md:hidden text-2xl focus:outline-none"
+        className="md:hidden text-2xl text-brand-black focus:outline-none"
         onClick={() => setIsOpen(!isOpen)}
       >
         {isOpen ? <HiX /> : <HiMenu />}
@@ -66,13 +67,13 @@ function Navbar() {
       {isOpen && (
         <div
           ref={menuRef}
-          className="absolute top-full left-0 w-full bg-brand-purple flex flex-col items-start px-6 py-4 space-y-4 md:hidden shadow-md z-50"
+          className="absolute top-full left-0 w-full bg-brand-yellow flex flex-col items-start px-6 py-4 space-y-4 md:hidden shadow-md z-50"
         >
           {navLinks.map((link) => (
             <Link
               key={link.name}
               to={link.path}
-              className="hover:text-brand-yellow transition-colors"
+              className="text-brand-black hover:text-brand-purple transition-colors font-medium"
             >
               {link.name}
             </Link>
@@ -80,7 +81,7 @@ function Navbar() {
           {/* CTA */}
           <Link
             to="/products"
-            className="bg-brand-yellow text-brand-black px-4 py-2 rounded-lg font-semibold hover:opacity-90 transition w-full text-center"
+            className="bg-brand-purple text-brand-white px-4 py-2 rounded-lg font-semibold hover:opacity-90 transition w-full text-center"
           >
             Shop Now
           </Link>
@@ -88,6 +89,6 @@ function Navbar() {
       )}
     </nav>
   );
-}
+};
 
 export default Navbar;

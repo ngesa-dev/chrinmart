@@ -5,10 +5,13 @@ export default {
     extend: {
         colors: {
         brand: {
-          purple: "#5B21B6",  // Tailwind's purple-800
-          yellow: "#FCD34D",  // Tailwind's yellow-300
+         purple:  "#142C66",// brightened purple
+  yellow: "#FFD600",// 
           white: "#FFFFFF",
           black: "#000000",
+            gray100: "#F3F4F6", // light gray background
+          gray600: "#4B5563", // medium gray (body text)
+          gray800: "#1F2937", // dark gray (headings / strong text)
         },
       },
     },
