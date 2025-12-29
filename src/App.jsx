@@ -1,39 +1,18 @@
-// src/App.jsx
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
-// Pages
-import Home from "./pages/Home";
-import Products from "./pages/Products";
-import ProductDetails from "./pages/ProductDetails";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
-
-// Components
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-
+import AppRoutes from "./routes/AppRoutes";
+import Navbar from "./components/layout/Navbar";
+import Footer from "./components/layout/Footer";
+import { SearchProvider } from "./context/SearchContext";
 function App() {
   return (
-    <Router>
-      <div className="flex flex-col min-h-screen">
-        {/* Navbar */}
-        <Navbar />
+    <>
+    <SearchProvider>
+  <Navbar />
+      <AppRoutes />
+      <Footer />
 
-        {/* Main Content */}
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/products/:id" element={<ProductDetails />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </main>
-
-        {/* Footer */}
-        <Footer />
-      </div>
-    </Router>
+    </SearchProvider>
+    
+    </>
   );
 }
 
